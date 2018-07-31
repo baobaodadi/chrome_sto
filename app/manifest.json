@@ -34,5 +34,6 @@
   "web_accessible_resources": [
     "images/stock_down.png",
     "images/stock_up.png"
-  ]
+  ],
+  "devtools_page": "devtools.html"
 }

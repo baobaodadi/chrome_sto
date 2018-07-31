@@ -5,99 +5,99 @@
         <span>{{lodingMsg}}</span>
       </div>
       <div class="header-line" v-if="stocks.length">
-        <el-table align="center" header-align="center" size="mini" :data="sortStocks" style="width: 100%" :cell-class-name='cellClassName' ref="stockTable">
-          <el-table-column label="股票">
+        <el-table align="center" header-align="center" size="mini" :data="sortStocks" style="width: 200px" :cell-class-name='cellClassName' ref="stockTable">
+          <el-table-column label="xx" width="80">
             <template slot-scope="scope">
               <!-- <a class="stock-link" :href="`httpZ://stockpage.10jqka.com.cn/${scope.row.code.slice(2)}/`" target="_blank">{{scope.row.name}}<span class='stock-code'>{{scope.row.code}}</span></a> -->
-              <a class="stock-link" :href="`http://finance.sina.com.cn/realstock/company/${scope.row.code}/nc.shtml`" target="_blank">{{scope.row.name}}
+              <!--<a class="stock-link" :href="`http://finance.sina.com.cn/realstock/company/${scope.row.code}/nc.shtml`" target="_blank">{{scope.row.name}}-->
                 <span class='stock-code'>{{scope.row.code}}</span>
-              </a>
+              <!--</a>-->
             </template>
           </el-table-column>
 
-          <el-table-column prop="curPrice" label="现价" :formatter="formatterFixedTwo" width="50" :sortable="!setModeChecked">
+          <el-table-column prop="curPrice" label="xx" :formatter="formatterFixedTwo" width="50" :sortable="!setModeChecked">
           </el-table-column>
 
-          <el-table-column label="涨跌幅" prop="range" width="70" :formatter="formatter" :sortable="!setModeChecked">
+          <el-table-column label="xx" prop="range" width="50" :formatter="formatter" :sortable="!setModeChecked">
           </el-table-column>
 
-          <el-table-column prop="rangePrice" label="涨跌额" width="70" :formatter="formatterFixedTwo" :sortable="!setModeChecked">
-          </el-table-column>
+          <!--<el-table-column prop="rangePrice" label="xx" width="50" :formatter="formatterFixedTwo" :sortable="!setModeChecked">-->
+          <!--</el-table-column>-->
 
-          <el-table-column v-if="colList.indexOf('toPrice') != -1 && !setModeChecked" prop="toPrice" label="今开" :formatter="formatterFixedTwo" width="45">
-            <template slot-scope="scope">
-              <span v-html="scope.row.toPrice"></span>
-            </template>
-          </el-table-column>
+          <!--<el-table-column v-if="colList.indexOf('toPrice') != -1 && !setModeChecked" prop="toPrice" label="今开" :formatter="formatterFixedTwo" width="45">-->
+            <!--<template slot-scope="scope">-->
+              <!--<span v-html="scope.row.toPrice"></span>-->
+            <!--</template>-->
+          <!--</el-table-column>-->
 
-          <el-table-column v-if="colList.indexOf('highPrice') != -1 && !setModeChecked" prop="highPrice" label="最高" :formatter="formatterFixedTwo" width="45">
-            <template slot-scope="scope">
-              <span v-html="scope.row.highPrice"></span>
-            </template>
-          </el-table-column>
+          <!--<el-table-column v-if="colList.indexOf('highPrice') != -1 && !setModeChecked" prop="highPrice" label="最高" :formatter="formatterFixedTwo" width="45">-->
+            <!--<template slot-scope="scope">-->
+              <!--<span v-html="scope.row.highPrice"></span>-->
+            <!--</template>-->
+          <!--</el-table-column>-->
 
-          <el-table-column v-if="colList.indexOf('lowPrice') != -1 && !setModeChecked" prop="lowPrice" label="最低" :formatter="formatterFixedTwo" width="45">
-            <template slot-scope="scope">
-              <span v-html="scope.row.lowPrice"></span>
-            </template>
-          </el-table-column>
+          <!--<el-table-column v-if="colList.indexOf('lowPrice') != -1 && !setModeChecked" prop="lowPrice" label="最低" :formatter="formatterFixedTwo" width="45">-->
+            <!--<template slot-scope="scope">-->
+              <!--<span v-html="scope.row.lowPrice"></span>-->
+            <!--</template>-->
+          <!--</el-table-column>-->
 
-          <el-table-column v-if="colList.indexOf('profit') != -1 && !setModeChecked" prop="profit" label="盈亏" width="50" :sortable="!setModeChecked">
-            <template slot-scope="scope">
-              <span v-html="scope.row.profit"></span>
-            </template>
-          </el-table-column>
+          <!--<el-table-column v-if="colList.indexOf('profit') != -1 && !setModeChecked" prop="profit" label="盈亏" width="50" :sortable="!setModeChecked">-->
+            <!--<template slot-scope="scope">-->
+              <!--<span v-html="scope.row.profit"></span>-->
+            <!--</template>-->
+          <!--</el-table-column>-->
 
-          <el-table-column v-if="colList.indexOf('cost') != -1 || setModeChecked" label="成本" width="50">
-            <template slot-scope="scope">
-              <el-input v-show="scope.row.edit" v-model="localStock[scope.$index].cost" size="mini"></el-input>
-              <span v-show="!scope.row.edit">{{ localStock[scope.$index].cost }}</span>
-            </template>
-          </el-table-column>
+          <!--<el-table-column v-if="colList.indexOf('cost') != -1 || setModeChecked" label="成本" width="50">-->
+            <!--<template slot-scope="scope">-->
+              <!--<el-input v-show="scope.row.edit" v-model="localStock[scope.$index].cost" size="mini"></el-input>-->
+              <!--<span v-show="!scope.row.edit">{{ localStock[scope.$index].cost }}</span>-->
+            <!--</template>-->
+          <!--</el-table-column>-->
 
-          <el-table-column v-if="colList.indexOf('count') != -1 || setModeChecked" label="持仓" width="50">
-            <template slot-scope="scope">
-              <el-input v-show="scope.row.edit" v-model="localStock[scope.$index].count" size="mini"></el-input>
-              <span v-show="!scope.row.edit">{{ localStock[scope.$index].count }}</span>
-            </template>
-          </el-table-column>
+          <!--<el-table-column v-if="colList.indexOf('count') != -1 || setModeChecked" label="持仓" width="50">-->
+            <!--<template slot-scope="scope">-->
+              <!--<el-input v-show="scope.row.edit" v-model="localStock[scope.$index].count" size="mini"></el-input>-->
+              <!--<span v-show="!scope.row.edit">{{ localStock[scope.$index].count }}</span>-->
+            <!--</template>-->
+          <!--</el-table-column>-->
 
-          <el-table-column label="上限" v-if="setModeChecked" width="50">
-            <template slot-scope="scope">
-              <el-input v-show="scope.row.edit" v-model="localStock[scope.$index].upLimit" size="mini"></el-input>
-              <span v-show="!scope.row.edit">{{ localStock[scope.$index].upLimit }}</span>
-            </template>
-          </el-table-column>
+          <!--<el-table-column label="上限" v-if="setModeChecked" width="50">-->
+            <!--<template slot-scope="scope">-->
+              <!--<el-input v-show="scope.row.edit" v-model="localStock[scope.$index].upLimit" size="mini"></el-input>-->
+              <!--<span v-show="!scope.row.edit">{{ localStock[scope.$index].upLimit }}</span>-->
+            <!--</template>-->
+          <!--</el-table-column>-->
 
-          <el-table-column label="下限" v-if="setModeChecked" width="50">
-            <template slot-scope="scope">
-              <el-input v-show="scope.row.edit" v-model="localStock[scope.$index].downLimit" size="mini"></el-input>
-              <span v-show="!scope.row.edit">{{ localStock[scope.$index].downLimit }}</span>
-            </template>
-          </el-table-column>
+          <!--<el-table-column label="下限" v-if="setModeChecked" width="50">-->
+            <!--<template slot-scope="scope">-->
+              <!--<el-input v-show="scope.row.edit" v-model="localStock[scope.$index].downLimit" size="mini"></el-input>-->
+              <!--<span v-show="!scope.row.edit">{{ localStock[scope.$index].downLimit }}</span>-->
+            <!--</template>-->
+          <!--</el-table-column>-->
 
-          <el-table-column label="走势图" width="60" v-if="colList.indexOf('chart') != -1 && !setModeChecked">
-            <template slot-scope="props">
-              <peity v-if="props.row.lineData.length" :type="setPeity.type" :options="setPeity.options" :data="props.row.lineData"></peity>
-            </template>
-          </el-table-column>
+          <!--<el-table-column label="走势图" width="60" v-if="colList.indexOf('chart') != -1 && !setModeChecked">-->
+            <!--<template slot-scope="props">-->
+              <!--<peity v-if="props.row.lineData.length" :type="setPeity.type" :options="setPeity.options" :data="props.row.lineData"></peity>-->
+            <!--</template>-->
+          <!--</el-table-column>-->
 
-          <el-table-column label="操作" fixed="right" width="145" v-if="setModeChecked">
-            <template slot-scope="scope" v-if="setModeChecked">
-              <el-button @click.native.prevent="moveUp(scope.$index)" :disabled="scope.$index == 0" type="text" size="mini">
-                上移
-              </el-button>
-              <el-button @click.native.prevent="moveDown(scope.$index)" :disabled="scope.$index+1 == localStockLength" type="text" size="mini">
-                下移
-              </el-button>
-              <el-button @click.native.prevent="edit(scope.$index)" type="text" size="mini">
-                {{ scope.row.edit ? '完成' : '编辑' }}
-              </el-button>
-              <el-button @click.native.prevent="deleteRow(scope.$index, scope.row)" type="text" size="mini">
-                移除
-              </el-button>
-            </template>
-          </el-table-column>
+          <!--<el-table-column label="操作" fixed="right" width="145" v-if="setModeChecked">-->
+            <!--<template slot-scope="scope" v-if="setModeChecked">-->
+              <!--<el-button @click.native.prevent="moveUp(scope.$index)" :disabled="scope.$index == 0" type="text" size="mini">-->
+                <!--上移-->
+              <!--</el-button>-->
+              <!--<el-button @click.native.prevent="moveDown(scope.$index)" :disabled="scope.$index+1 == localStockLength" type="text" size="mini">-->
+                <!--下移-->
+              <!--</el-button>-->
+              <!--<el-button @click.native.prevent="edit(scope.$index)" type="text" size="mini">-->
+                <!--{{ scope.row.edit ? '完成' : '编辑' }}-->
+              <!--</el-button>-->
+              <!--<el-button @click.native.prevent="deleteRow(scope.$index, scope.row)" type="text" size="mini">-->
+                <!--移除-->
+              <!--</el-button>-->
+            <!--</template>-->
+          <!--</el-table-column>-->
         </el-table>
       </div>
     </div>
@@ -135,19 +135,19 @@
           </el-checkbox-group>
         </template>
       </div>
-      <div class="bottom">
-        <div class="progress-wrapper">
-          <el-progress type="circle" :stroke-width="3" :width="20" :percentage="progress" :show-text="false"></el-progress>
-        </div>
-        <!-- "https://wallstreetcn.com/live/a-stock" -->
-        <div class="announcement-wrapper" :style="{ width: announcementWidth + 'px' }" @click="openWallStreetUrl">
-          <ScrollMsgLine :data="announcements"></ScrollMsgLine>
-        </div>
-        <div class="set-mode-checked-wrapper">
-          <el-switch v-model="setModeChecked" active-text="">
-          </el-switch>
-        </div>
-      </div>
+      <!--<div class="bottom">-->
+        <!--<div class="progress-wrapper">-->
+          <!--<el-progress type="circle" :stroke-width="3" :width="20" :percentage="progress" :show-text="false"></el-progress>-->
+        <!--</div>-->
+        <!--&lt;!&ndash; "https://wallstreetcn.com/live/a-stock" &ndash;&gt;-->
+        <!--<div class="announcement-wrapper" :style="{ width: announcementWidth + 'px' }" @click="openWallStreetUrl">-->
+          <!--<ScrollMsgLine :data="announcements"></ScrollMsgLine>-->
+        <!--</div>-->
+        <!--<div class="set-mode-checked-wrapper">-->
+          <!--<el-switch v-model="setModeChecked" active-text="">-->
+          <!--</el-switch>-->
+        <!--</div>-->
+      <!--</div>-->
     </div>
   </div>
 </template>
@@ -409,7 +409,7 @@ export default {
 		},
 		_initGetStock() {
 			const conShock = [
-				{ cost: 0, code: 'sh000001', count: 0, downLimit: 0, upLimit: 0 }
+				{ cost: 0, code: 'sz000989', count: 0, downLimit: 0, upLimit: 0 }
 			]
 			const colList = ['profit', 'chart']
 
@@ -576,7 +576,7 @@ td .cell {
 
 .el-table tbody .el-table_1_column_1 .cell {
   line-height: 0.8rem;
-  width: 5rem;
+  width: 100px;
 }
 
 .el-table th {
