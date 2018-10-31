@@ -6,7 +6,7 @@
       </div>
       <div class="header-line" v-if="stocks.length">
         <el-table align="center" header-align="center" size="mini" :data="sortStocks" style="width: 200px" :cell-class-name='cellClassName' ref="stockTable">
-          <el-table-column label="xx" width="80">
+          <el-table-column label="" width="80">
             <template slot-scope="scope">
               <!-- <a class="stock-link" :href="`httpZ://stockpage.10jqka.com.cn/${scope.row.code.slice(2)}/`" target="_blank">{{scope.row.name}}<span class='stock-code'>{{scope.row.code}}</span></a> -->
               <!--<a class="stock-link" :href="`http://finance.sina.com.cn/realstock/company/${scope.row.code}/nc.shtml`" target="_blank">{{scope.row.name}}-->
@@ -15,10 +15,10 @@
             </template>
           </el-table-column>
 
-          <el-table-column prop="curPrice" label="xx" :formatter="formatterFixedTwo" width="50" :sortable="!setModeChecked">
+          <el-table-column prop="curPrice" label="" :formatter="formatterFixedTwo" width="50" :sortable="!setModeChecked">
           </el-table-column>
 
-          <el-table-column label="xx" prop="range" width="50" :formatter="formatter" :sortable="!setModeChecked">
+          <el-table-column label="" prop="range" width="50" :formatter="formatter" :sortable="!setModeChecked">
           </el-table-column>
 
           <!--<el-table-column prop="rangePrice" label="xx" width="50" :formatter="formatterFixedTwo" :sortable="!setModeChecked">-->
@@ -241,7 +241,7 @@ export default {
 			if (!this.setModeChecked) {
 				this._getALLStock(this.localStock)
 			}
-		}, 10000)
+		}, 3000)
 		// 进度条
 		setInterval(() => {
 			this._progressIncrease()
@@ -409,7 +409,10 @@ export default {
 		},
 		_initGetStock() {
 			const conShock = [
-				{ cost: 0, code: 'sz000989', count: 0, downLimit: 0, upLimit: 0 }
+				{ cost: 0, code: 'sh603799', count: 0, downLimit: 0, upLimit: 0 },
+				{ cost: 0, code: 'sh000001', count: 0, downLimit: 0, upLimit: 0 },
+				{ cost: 0, code: 'sz399001', count: 0, downLimit: 0, upLimit: 0 },
+				{ cost: 0, code: 'sz300676', count: 0, downLimit: 0, upLimit: 0 },
 			]
 			const colList = ['profit', 'chart']
 

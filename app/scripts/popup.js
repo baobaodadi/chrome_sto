@@ -14643,7 +14643,7 @@ exports.default = {
 			if (!_this2.setModeChecked) {
 				_this2._getALLStock(_this2.localStock);
 			}
-		}, 10000);
+		}, 3000);
 		// 进度条
 		setInterval(function () {
 			_this2._progressIncrease();
@@ -14803,7 +14803,7 @@ exports.default = {
 			}
 		},
 		_initGetStock: function _initGetStock() {
-			var conShock = [{ cost: 0, code: 'sz000989', count: 0, downLimit: 0, upLimit: 0 }];
+			var conShock = [{ cost: 0, code: 'sh603799', count: 0, downLimit: 0, upLimit: 0 }, { cost: 0, code: 'sh000001', count: 0, downLimit: 0, upLimit: 0 }, { cost: 0, code: 'sz399001', count: 0, downLimit: 0, upLimit: 0 }, { cost: 0, code: 'sz300676', count: 0, downLimit: 0, upLimit: 0 }];
 			var colList = ['profit', 'chart'];
 
 			this.colList = localStorage.colList && JSON.parse(localStorage.colList).length > 0 ? JSON.parse(localStorage.colList) : colList;
@@ -59931,7 +59931,7 @@ var render = function() {
                   },
                   [
                     _c("el-table-column", {
-                      attrs: { label: "xx", width: "80" },
+                      attrs: { label: "", width: "80" },
                       scopedSlots: _vm._u([
                         {
                           key: "default",
@@ -59949,7 +59949,7 @@ var render = function() {
                     _c("el-table-column", {
                       attrs: {
                         prop: "curPrice",
-                        label: "xx",
+                        label: "",
                         formatter: _vm.formatterFixedTwo,
                         width: "50",
                         sortable: !_vm.setModeChecked
@@ -59958,7 +59958,7 @@ var render = function() {
                     _vm._v(" "),
                     _c("el-table-column", {
                       attrs: {
-                        label: "xx",
+                        label: "",
                         prop: "range",
                         width: "50",
                         formatter: _vm.formatter,
